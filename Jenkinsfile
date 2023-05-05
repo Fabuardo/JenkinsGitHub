@@ -1,5 +1,6 @@
 // Jenkinsfile (Declarative Pipeline)
-pipeline {
+try {
+    pipeline {
     agent any
 
     stages {
@@ -31,4 +32,8 @@ pipeline {
             }
         }
     }
+} catch(Exception e) {
+   // Do something with the exception 
 
+   slackSend(channel: '#fundamentos-de-devops', message: ' :fire: Estimado Fabián T, su ppeline no se ejecutó, revise la configuración :fire:')
+}
