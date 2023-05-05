@@ -20,7 +20,10 @@ pipeline {
         }
         post {
             failure {
-                slackSend failOnError:true message:"Build failed  - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+                slackSend(channel: '#fundamentos-de-devops', message: ' Falló la ejecución')
+            }
+            success {
+                slackSend(channel: '#fundamentos-de-devops', message: ' Se ejecutó correctamente')
             }
         }
     }
