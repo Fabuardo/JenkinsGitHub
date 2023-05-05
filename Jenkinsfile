@@ -18,6 +18,7 @@ pipeline {
                 echo 'Deploying....'
             }
         }
+    }
         post {
             failure {
                 slackSend(channel: '#fundamentos-de-devops', message: ' Falló la ejecución')
@@ -27,4 +28,4 @@ pipeline {
             }
         }
     }
-}
+
